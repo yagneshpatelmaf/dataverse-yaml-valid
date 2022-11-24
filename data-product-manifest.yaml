@@ -1,0 +1,141 @@
+# --- Data product definition template and documentation   --- #
+
+# Data product manifest version. Prefer to have semantic version
+version: '0.0.1'
+
+discoveryPort:
+  name: 'CFR customer data'
+  description: 'A daliy updated product about CRF customer data. It consist of more than 20M records integrated from 5 different sources'
+  category: 'customer'
+  image:
+  autofillUserinfo: true
+  tags: []
+  extra: {}
+
+inputPorts:
+  - description:
+    tags: []
+    extra: {}
+    syncType: 'pull'
+    type: 's3'
+    sourceUrn: '${urn:dv:datasource:crf-customers}'
+    entityId:
+      alias: 'customers'
+      createEntity: true
+      refId: 1
+      type: 's3-bucket'
+      entityPath: 's3a://mafh-analytics-data-ingestion/data-ingestion/prd/parsed/rtl_crf_dim_account/'
+      entityFilterPaternMatch: '*'
+      sourceSchemaUrn: null
+      projectSchemaUrn: null
+      fileFormat: 'csv'
+      delimiter: '|'
+      filter: 'active_flag=1'
+      # the date/time the event was logged in the source system (incremental column)
+      processingTimeColumn: ['processing_time']
+      # the business date/time of the event
+      actualTimeColumn: ['processing_time']
+      projection:
+        [
+          'customer_id',
+          'cust_title_desc',
+          'cust_birthday',
+          'cust_nationality',
+          'cust_email',
+          'cust_addrs1',
+          'cust_addrs2',
+          'cust_addrs3',
+          'cust_addrs4',
+          'cust_addrs5',
+          'cust_city',
+          'cust_po_box',
+          'cust_zipcode',
+          'cust_country',
+          'cust_landline',
+          'cust_mobile',
+          'cust_status_desc',
+          'cust_gender_desc',
+          'cust_job',
+          'cust_call_flag',
+          'cust_sms_flag',
+          'cust_mms_flag',
+          'cust_mail_flag',
+          'cust_email_flag',
+          'account_id',
+          'account_status_key',
+          'account_inactive_cause_key',
+          'registration_channel',
+          'cust_first_name',
+          'cust_last_name',
+          'country_key',
+          'crf_account_hash_id',
+          'crf_account_hash_scd',
+          'processing_time',
+          'file_name',
+        ]
+
+# Infromation regarding the product data and logical schema. Define the update strategy via updateStrategy options.
+stateManagement:
+  # interval of data product has to be refreshed, this
+  refreshInterval: '00 10 * * *'
+
+  # data update strategy (appendOnly, SCD, override, ...)
+  updateStrategy: 'SCD'
+  updateStrategyOptions:
+    # entityUrn:
+    - entityRef: '${urn:dv:datasource:6d4714c3}:1'
+      # columns to use to create a unique key (e.g. hash of columns to be used in scd2 de-duplication)
+      uniqueKeyColumns: ['customer_id']
+      # Business columns for which to track changes (hash id column)
+      changeTrackColumns:
+        [
+          'cust_title_desc',
+          'cust_birthday',
+          'cust_nationality',
+          'cust_email',
+          'cust_addrs1',
+          'cust_addrs2',
+          'cust_city',
+          'cust_landline',
+          'cust_mobile',
+          'cust_sms_flag',
+          'cust_mms_flag',
+          'account_id',
+          'account_status_key',
+          'cust_first_name',
+          'cust_last_name',
+          'country_key',
+        ]
+        
+  productStoreState:
+    # the logical schema for the storage of the data product state
+    logicalSchemaUrn: '${urn:dv:schema:9d4716c3}'
+    # history of version to keep
+    retentionVersions: '10'
+
+# The code that will transform the data from input port and make it available for output port to consume it.
+transformation:
+  sql: "select 'CRF' as source, customer_id, date_format(cust_birthday, 'yyyy-MM-dd') as dateOfBirth, coalesce(cust_nationality,'') as nationality, coalesce(cust_mobile,'') as `phone:String`,coalesce(cust_landline,'') as `landline:String`,cust_status_desc as `status:String`,coalesce(cust_gender_desc,'') as `gender:String`,coalesce(cust_email,'') `email:String`,registration_channel as `acquisition_channel:String`, '{street:' || coalesce(cust_addrs1,'') || '^^' || coalesce(cust_addrs2,'') || '^^' || coalesce(cust_addrs3,'') || '^^' || coalesce(cust_addrs4,'') || '^^' || coalesce(cust_addrs5,'') || ',city:' || coalesce(cust_city,'') || ',po_box:' || coalesce(cust_po_box,'') || ', zipcode:' || coalesce(cust_zipcode,'') || ', country:' || coalesce(cust_country,'') ||  '}' `address:String`,coalesce(cust_first_name,'') || ' ' || coalesce(cust_last_name,'') as `customerName:String`,'' as `customerAge:String`,processing_time \
+    from customers"
+
+# ---- Have to fill --- #
+
+# Define the busineess rules and quality controls, SLOs etc
+controlPort:
+  dataQualityRules:
+  businessMetrics:
+  #
+  slo:
+  tags: []
+  extra: {}
+
+# Control the way data is consumed from the data product.
+outPort:
+  - alias:
+    # the type/channel of the output port e.g. SQL, Rest, Cypher, Gremlin, GraphQL, CUBE-OLAP...
+    queryType:
+    # slo is a set of metrcis and their corresponding expected/targeted value (e.g. responseTime < 1s )
+    slo: {}
+    tags: []
+    extra: {}
+# --- end -- #
