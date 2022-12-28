@@ -4,7 +4,7 @@
 version: '0.0.1'
 
 discoveryPort:
-  name: 'CFR customer data 24'
+  name: 'CFR customer data 25'
   description: 'A daliy updated product about CRF customer data. It consist of more than 20M records integrated from 5 different sources'
   category: 'customer'
   image: 'https://www.example.com/image/url'
