@@ -7,7 +7,7 @@ discoveryPort:
   name: 'CFR customer data 24'
   description: 'A daliy updated product about CRF customer data. It consist of more than 20M records integrated from 5 different sources'
   category: 'customer'
-  image:
+  image: 'https://www.example.com/image/url'
   autofillUserinfo: true
   tags: []
   extra: {}
@@ -130,7 +130,7 @@ controlPort:
   extra: {}
 
 # Control the way data is consumed from the data product.
-outPort:
+outputPort:
   - alias:
     # the type/channel of the output port e.g. SQL, Rest, Cypher, Gremlin, GraphQL, CUBE-OLAP...
     queryType:
