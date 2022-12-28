@@ -13,7 +13,7 @@ discoveryPort:
   extra: {}
 
 inputPorts:
-  - description:
+  - description: 'some description'
     tags: []
     extra: {}
     syncType: 'pull'
@@ -122,18 +122,17 @@ transformation:
 
 # Define the busineess rules and quality controls, SLOs etc
 controlPort:
-  dataQualityRules:
-  businessMetrics:
-  #
-  slo:
+  dataQualityRules: []
+  businessMetrics: {}
+  slo: {}
   tags: []
   extra: {}
 
 # Control the way data is consumed from the data product.
 outputPort:
-  - alias:
+  - alias: 'some alias'
     # the type/channel of the output port e.g. SQL, Rest, Cypher, Gremlin, GraphQL, CUBE-OLAP...
-    queryType:
+    queryType: 'SQL'
     # slo is a set of metrcis and their corresponding expected/targeted value (e.g. responseTime < 1s )
     slo: {}
     tags: []
