@@ -1,6 +1,6 @@
 version: 0.0.1
 discoveryPort:
-  name: "sakin ol :) okuulum"
+  name: "sakin ol :) okuulumm"
   description: The data product provides average house rental rates in Madrid by house
     type (Pisos, Aticos, Duplex, etc)
   category: customer
