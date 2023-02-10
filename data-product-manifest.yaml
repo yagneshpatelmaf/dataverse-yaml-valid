@@ -51,7 +51,18 @@ stateManagement:
   retentionVersions: "10"
   updateStrategy: SCD-2
   productStoreState:
-    logicalSchemaUrn: ${urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9}
+    #logicalSchemaUrn: urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9
+    logicalSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        gender:
+          type: string
+          enum: [Male, Female]
+        age:
+          type: number
+      required: [name, age]
     retentionVersions: "10"
   updateStrategyOptions:
     - entityRef: ${urn:dv:datasource:6d4714c3}:1
