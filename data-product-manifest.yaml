@@ -81,5 +81,5 @@ outputPort:
   channels:
   - channelType: JDBC
     queryType: SQL
-  - channelType: REST-API
-    queryType: SQL
+  #- channelType: REST-API
+  #  queryType: SQL
