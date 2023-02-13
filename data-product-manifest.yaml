@@ -47,7 +47,6 @@ inputPorts:
 stateManagement:
   alias: users_count_by_gender
   refreshInterval: 00 10 * * *
-  logicalSchemaUrn: ${urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9}
   retentionVersions: "10"
   updateStrategy: SCD-2
   productStoreState:
