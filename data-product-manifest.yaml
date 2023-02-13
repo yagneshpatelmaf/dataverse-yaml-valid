@@ -61,6 +61,10 @@ stateManagement:
           enum: [Male, Female]
         age:
           type: number
+        city:
+          type: string
+        zipcode:
+          type: number
       required: [name, age]
     retentionVersions: "10"
   updateStrategyOptions:
