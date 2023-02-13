@@ -77,3 +77,9 @@ stateManagement:
         - cust_nationality
 transformation:
   sql: select * from usersS3
+outputPort:
+  channels:
+  - channelType: JDBC
+    queryType: SQL
+  - channelType: REST-API
+    queryType: SQL
