@@ -66,8 +66,8 @@ stateManagement:
         zipcode:
           type: number
         some_prop:
-          type: number
-      required: [name, age, city]
+          type: string
+      required: [name, age, city, some_prop]
     retentionVersions: "10"
   updateStrategyOptions:
     entityRef: ${urn:dv:datasource:6d4714c3}:1
