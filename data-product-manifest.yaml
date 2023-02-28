@@ -65,8 +65,6 @@ stateManagement:
           type: string
         zipcode:
           type: number
-        some_prop:
-          type: string
       required: [name, age, city]
     retentionVersions: "10"
   updateStrategyOptions:
