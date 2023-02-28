@@ -68,13 +68,13 @@ stateManagement:
       required: [name, age, city]
     retentionVersions: "10"
   updateStrategyOptions:
-    - entityRef: ${urn:dv:datasource:6d4714c3}:1
-      uniqueKeyColumns:
-        - customer_id
-      changeTrackColumns:
-        - cust_title_desc
-        - cust_birthday
-        - cust_nationality
+    entityRef: ${urn:dv:datasource:6d4714c3}:1
+    uniqueKeyColumns:
+      - customer_id
+    changeTrackColumns:
+      - cust_title_desc
+      - cust_birthday
+      - cust_nationality
 transformation:
   sql: select * from usersS3
 outputPort:
