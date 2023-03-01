@@ -67,7 +67,7 @@ stateManagement:
           type: number
         some_prop:
           type: string
-      required: [name, age, city, some_prop]
+      required: [name, age, city]
     retentionVersions: "10"
   updateStrategyOptions:
     entityRef: ${urn:dv:datasource:6d4714c3}:1
