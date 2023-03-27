@@ -16,7 +16,7 @@ inputPorts:
     tags: []
     extra: {}
     syncType: pull
-    sourceUrn: urn:dv:datasource:3eeffe61-fe26-4e91-a315-70d4787e8f90
+    sourceUrn: urn:dv:datasource:3bc63bfe-8dd7-46c3-a0a0-288e5ef1f128
     type: s3
     entityId:
       alias: usersS3
