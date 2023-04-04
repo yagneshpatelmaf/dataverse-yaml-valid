@@ -48,7 +48,7 @@ stateManagement:
   alias: users_count_by_gender
   refreshInterval: 00 10 * * *
   retentionVersions: "10"
-  updateStrategy: SCD-2
+  updateStrategy: SCD2
   productStoreState:
     #logicalSchemaUrn: urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9
     logicalSchema:
