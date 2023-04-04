@@ -78,7 +78,22 @@ stateManagement:
       - cust_birthday
       - cust_nationality
 transformation:
-  sql: select * from usersS3
+  - alias: Transform 1
+  type: SQL
+  description: Join input1 and input2 to get the actual member name
+  query: select * from i1 inner join i2 on i1.id=i2.id
+  references:
+    - alias: input1
+      sqlReference: i1
+    - alias: input2
+      sqlReference: i2
+- alias: Transform 2
+  type: SQL
+  description: Generate the sum of marks on a name level
+  query: select name,sum(marks) from t1 group by name
+  references:
+    - alias: Transform 1
+      sqlReference: t1
 outputPort:
   channels:
   - channelType: JDBC
