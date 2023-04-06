@@ -28,6 +28,7 @@ inputPorts:
       sourceSchemaUrn: urn:dv:schema:9d4716d4
       projectSchemaUrn: urn:dv:schema:9d4716d6
       fileFormat: parquet
+      incrementalLoad: true
       delimiter: "|"
       filter: subtitle != ''
       processingTimeColumn:
