@@ -11,7 +11,7 @@ discoveryPort:
     - House Rental
   extra: {}
 inputPorts:
-  - alias: usersS3_input_port
+  - alias: input_port_k
     description: string
     tags: []
     extra: {}
