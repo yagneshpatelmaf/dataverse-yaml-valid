@@ -101,3 +101,9 @@ outputPort:
     queryType: SQL
   - channelType: REST-API
     queryType: SQL
+dataQualityCheck:
+  RecordCountCheck:
+    inputPort:
+      - referenceAlias: car_prices
+        expression: 'sq'
+        number: 100
