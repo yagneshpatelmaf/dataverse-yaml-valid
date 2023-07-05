@@ -1,16 +1,25 @@
 version: 0.1.0
-jobId: "10"
-jobName: Test MariaDB
+jobId: "4"
+jobName: Test_MySQL
 jobType: Source Aligned Data Product
-alias: Abc
+alias: xyz
 discoveryPort:
-  name: Test MariaDB
+  name: Test_MySQL
   description: ""
   category: ""
   image: https://google.com
   autofillUserinfo: ""
   tags: []
   extra: {}
+  shortDescription: Short Description
+  longDescription: Long Long Long Description
+  industryDomain: ""
+  function: ""
+  regulatoryFields:
+    dataPrivacy: ""
+    customerInfo: ""
+    dataOrigin: ""
+    monetaryInfo: ""
 inputPorts:
   - alias: PMS_Master_1
     description: PMS Master
@@ -24,7 +33,7 @@ inputPorts:
     dataProductUrn: ""
     persistDataFrame: false
 productState:
-  alias: Abc
+  alias: xyz
   refreshInterval: ""
   retentionVersions: ""
   updateStrategy: Append
@@ -33,12 +42,12 @@ productState:
   enforceSchema: false
   updateStrategyOptions: {}
   isProfilingEnabled: false
-  tableName: tbl_platform_exceptions
+  tableName: model_costing386
 transformation:
   - alias: Spark_SQL_1
     type: SQL
-    description: SQL Abc
-    query: select * from abc
+    description: pqr
+    query: select * from pqr
     references:
       - alias: PMS_Master_1
         sqlReference: ""
