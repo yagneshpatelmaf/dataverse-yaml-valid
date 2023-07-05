@@ -1,109 +1,50 @@
-version: 0.0.1
+version: 0.1.0
+jobId: "10"
+jobName: Test MariaDB
+jobType: Source Aligned Data Product
+alias: Abc
 discoveryPort:
-  name: main branch test
-  description: The data product provides average house rental rates in Madrid by house
-    type (Pisos, Aticos, Duplex, etc)
-  category: customer
-  image: http://google.com
-  autofillUserinfo: true
-  tags:
-    - Madrid
-    - House Rental
+  name: Test MariaDB
+  description: ""
+  category: ""
+  image: https://google.com
+  autofillUserinfo: ""
+  tags: []
   extra: {}
 inputPorts:
-  - alias: input_port_k
-    description: string
+  - alias: PMS_Master_1
+    description: PMS Master
     tags: []
     extra: {}
     syncType: pull
-    sourceUrn: urn:dv:datasource:3bc63bfe-8dd7-46c3-a0a0-288e5ef1f128
-    type: s3
-    entityId:
-      alias: usersS3
-      createEntity: true
-      entityName: houses_Madrid.parquet
-      type: s3-bucket
-      entityPath: s3a://dp-input-bucket/test/houses_Madrid.parquet
-      entityFilterPatternMatch: "*"
-      sourceSchemaUrn: urn:dv:schema:9d4716d4
-      projectSchemaUrn: urn:dv:schema:9d4716d6
-      fileFormat: parquet
-      incrementalLoad: true
-      delimiter: "|"
-      filter: subtitle != ''
-      processingTimeColumn:
-        - processing_time
-      actualTimeColumn:
-        - processing_time
-      projection:
-        - id
-        - title
-        - subtitle
-        - sq_mt_built
-        - sq_mt_useful
-        - rent_price
-        - rent_price_by_area
-        - buy_price
-        - buy_price_by_area
-stateManagement:
-  alias: users_count_by_gender
-  refreshInterval: 00 10 * * *
-  retentionVersions: "10"
-  updateStrategy: SCD2
-  productStoreState:
-    #logicalSchemaUrn: urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9
-    logicalSchema:
-      type: object
-      properties:
-        name:
-          type: string
-        gender:
-          type: string
-          enum: [Male, Female]
-        age:
-          type: number
-        city:
-          type: string
-        zipcode:
-          type: number
-        some_prop:
-          type: string
-      required: [name, age, city]
-    retentionVersions: "10"
-  updateStrategyOptions:
-    entityRef: ${urn:dv:datasource:6d4714c3}:1
-    uniqueKeyColumns:
-      - customer_id
-    changeTrackColumns:
-      - cust_title_desc
-      - cust_birthday
-      - cust_nationality
+    type: s3-csv
+    dataSetUrn: urn:dv:dataset:79c7ffb6-9365-42b0-ba63-fc3f561a4e74
+    filter: ""
+    projection: []
+    dataProductUrn: ""
+    persistDataFrame: false
+productState:
+  alias: Abc
+  refreshInterval: ""
+  retentionVersions: ""
+  updateStrategy: Append
+  logicalSchema: ""
+  enforceSchemaMethod: Error
+  enforceSchema: false
+  updateStrategyOptions: {}
+  isProfilingEnabled: false
+  tableName: tbl_platform_exceptions
 transformation:
-  - alias: Transform 1
-  type: SQL
-  description: Join input1 and input2 to get the actual member name
-  query: select * from i1 inner join i2 on i1.id=i2.id
-  references:
-    - alias: input1
-      sqlReference: i1
-    - alias: input2
-      sqlReference: i2
-- alias: Transform 2
-  type: SQL
-  description: Generate the sum of marks on a name level
-  query: select name,sum(marks) from t1 group by name
-  references:
-    - alias: Transform 1
-      sqlReference: t1
+  - alias: Spark_SQL_1
+    type: SQL
+    description: SQL Abc
+    query: select * from abc
+    references:
+      - alias: PMS_Master_1
+        sqlReference: ""
+controlPort:
+  dataQualityRules: {}
 outputPort:
-  channels:
-  - channelType: JDBC
-    queryType: SQL
-  - channelType: REST-API
-    queryType: SQL
-dataQualityCheck:
-  RecordCountCheck:
-    inputPort:
-      - referenceAlias: car_prices
-        expression: 'sq'
-        number: 100
+  subscriptionChannels:
+    - channelType: JDBC
+      queryType: SQL
