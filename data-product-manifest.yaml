@@ -1,10 +1,10 @@
 version: 0.1.0
-jobId: "4"
-jobName: Test_MySQL
+jobId: "6"
+jobName: Test_mariadb
 jobType: Source Aligned Data Product
 alias: xyz
 discoveryPort:
-  name: Test_MySQL
+  name: Test_mariadb
   description: ""
   category: ""
   image: https://google.com
@@ -43,6 +43,7 @@ productState:
   updateStrategyOptions: {}
   isProfilingEnabled: false
   tableName: model_costing386
+  stateStoreType: mysql_mariadb
 transformation:
   - alias: Spark_SQL_1
     type: SQL
