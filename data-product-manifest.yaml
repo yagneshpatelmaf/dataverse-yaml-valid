@@ -1,10 +1,10 @@
 version: 0.1.0
-jobId: "6"
-jobName: Test_mariadb
+jobId: "8"
+jobName: Test_maria_column
 jobType: Source Aligned Data Product
-alias: xyz
+alias: zxcv
 discoveryPort:
-  name: Test_mariadb
+  name: Test_maria_column
   description: ""
   category: ""
   image: https://google.com
@@ -16,10 +16,10 @@ discoveryPort:
   industryDomain: ""
   function: ""
   regulatoryFields:
-    dataPrivacy: "public"
-    customerInfo: "PII"
-    dataOrigin: "machineGenerated"
-    monetaryInfo: "financialData"
+    dataPrivacy: ""
+    customerInfo: ""
+    dataOrigin: ""
+    monetaryInfo: ""
 inputPorts:
   - alias: PMS_Master_1
     description: PMS Master
@@ -33,30 +33,20 @@ inputPorts:
     dataProductUrn: ""
     persistDataFrame: false
 productState:
-  alias: xyz
+  alias: zxcv
   refreshInterval: ""
   retentionVersions: ""
-  updateStrategy: overwrite
-  logicalSchema:
-    properties:
-      id:
-        type: number
-      name:
-        type: String
-      marks:
-        type: number
-      modified:
-        type: datetime
+  logicalSchema: ""
   enforceSchemaMethod: Error
   enforceSchema: false
   isProfilingEnabled: false
   tableName: model_costing386
-  stateStoreType: mysql_mariadb
+  stateStoreType: mariadb_columnstore
 transformation:
   - alias: Spark_SQL_1
     type: SQL
-    description: pqr
-    query: select * from pqr
+    description: "123"
+    query: select * from 123
     references:
       - alias: PMS_Master_1
         sqlReference: ""
