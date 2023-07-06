@@ -16,10 +16,10 @@ discoveryPort:
   industryDomain: ""
   function: ""
   regulatoryFields:
-    dataPrivacy: "public"
-    customerInfo: "PII"
-    dataOrigin: "humanGenerated"
-    monetaryInfo: "nonFinancialData"
+    dataPrivacy: ""
+    customerInfo: ""
+    dataOrigin: ""
+    monetaryInfo: ""
 inputPorts:
   - alias: PMS_Master_1
     description: PMS Master
@@ -36,7 +36,7 @@ productState:
   alias: xyz
   refreshInterval: ""
   retentionVersions: ""
-  updateStrategy: Append
+  updateStrategy: overwrite
   logicalSchema: ""
   enforceSchemaMethod: Error
   enforceSchema: false
