@@ -1,10 +1,10 @@
 version: 0.1.0
-jobId: "7"
-jobName: Test_redshift
+jobId: "6"
+jobName: Test_mariadb
 jobType: Source Aligned Data Product
-alias: qwerty
+alias: xyz
 discoveryPort:
-  name: Test_redshift
+  name: Test_mariadb
   description: ""
   category: ""
   image: https://google.com
@@ -33,33 +33,24 @@ inputPorts:
     dataProductUrn: ""
     persistDataFrame: false
 productState:
-  alias: qwerty
+  alias: xyz
   refreshInterval: ""
   retentionVersions: ""
   updateStrategy: overwrite
-  logicalSchema:
-    properties:
-      id:
-        type: number
-      name:
-        type: String
-      marks:
-        type: number
-      modified:
-        type: datetime
+  logicalSchema: ""
   enforceSchemaMethod: Error
   enforceSchema: false
   isProfilingEnabled: false
-  tableName: abc
-  stateStoreType: redshift
+  tableName: model_costing386
+  stateStoreType: mysql_mariadb
 transformation:
   - alias: Spark_SQL_1
     type: SQL
-    description: xyz
-    query: select * from xyz
+    description: pqr
+    query: select * from pqr
     references:
       - alias: PMS_Master_1
-        sqlReference: TestView
+        sqlReference: ""
 controlPort:
   dataQualityRules: {}
 outputPort:
