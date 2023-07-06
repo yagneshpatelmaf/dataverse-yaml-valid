@@ -39,7 +39,6 @@ productState:
   updateStrategy: Append
   enforceSchemaMethod: Error
   enforceSchema: false
-  updateStrategyOptions: {}
   isProfilingEnabled: false
   tableName: model_costing386
   stateStoreType: mysql_mariadb
