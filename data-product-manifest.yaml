@@ -37,16 +37,7 @@ productState:
   refreshInterval: ""
   retentionVersions: ""
   updateStrategy: overwrite
-  logicalSchema:
-    properties:
-      id:
-        type: number
-      name:
-        type: String
-      marks:
-        type: number
-      modified:
-        type: datetime
+  logicalSchema: ""
   enforceSchemaMethod: Error
   enforceSchema: false
   isProfilingEnabled: false
