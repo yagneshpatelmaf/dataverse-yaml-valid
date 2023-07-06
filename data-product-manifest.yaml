@@ -16,10 +16,10 @@ discoveryPort:
   industryDomain: ""
   function: ""
   regulatoryFields:
-    dataPrivacy: ""
-    customerInfo: ""
-    dataOrigin: ""
-    monetaryInfo: ""
+    dataPrivacy: "public"
+    customerInfo: "PII"
+    dataOrigin: "machineGenerated"
+    monetaryInfo: "financialData"
 inputPorts:
   - alias: PMS_Master_1
     description: PMS Master
