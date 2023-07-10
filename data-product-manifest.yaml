@@ -50,7 +50,7 @@ transformation:
     type: SQL
     description: "123"
     query: select * from 123
-    sequenceNo: 2
+    sequenceNo: "2"
     references:
       - alias: PMS_Master_1
         sqlReference: ""
