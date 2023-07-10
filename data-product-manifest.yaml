@@ -32,6 +32,9 @@ inputPorts:
     projection: []
     dataProductUrn: ""
     persistDataFrame: false
+    entity:
+      advanceOptions:
+        mergeSchema: false
 productState:
   alias: zxcv
   refreshInterval: ""
@@ -47,6 +50,7 @@ transformation:
     type: SQL
     description: "123"
     query: select * from 123
+    sequenceNo: 2
     references:
       - alias: PMS_Master_1
         sqlReference: ""
