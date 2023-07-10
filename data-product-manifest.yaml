@@ -16,10 +16,10 @@ discoveryPort:
   industryDomain: ""
   function: ""
   regulatoryFields:
-    dataPrivacy: "private"
-    customerInfo: "nonPII"
-    dataOrigin: "humanGenerated"
-    monetaryInfo: "nonFinancialData"
+    dataPrivacy: ""
+    customerInfo: ""
+    dataOrigin: ""
+    monetaryInfo: ""
 inputPorts:
   - alias: PMS_Master_1
     description: PMS Master
@@ -39,17 +39,8 @@ productState:
   alias: zxcv
   refreshInterval: ""
   retentionVersions: ""
-  updateStrategy: "append"
-  logicalSchema:
-    properties:
-      id:
-        type: number
-      name:
-        type: String
-      marks:
-        type: number
-      modified:
-        type: datetime
+  updateStrategy: {}
+  logicalSchema: ""
   enforceSchemaMethod: Error
   enforceSchema: false
   isProfilingEnabled: false
@@ -60,7 +51,7 @@ transformation:
     type: SQL
     description: "123"
     query: select * from 123
-    sequenceNo: "2"
+    sequenceNo: 2
     references:
       - alias: PMS_Master_1
         sqlReference: ""
