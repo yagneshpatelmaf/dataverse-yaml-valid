@@ -17,8 +17,8 @@ discoveryPort:
   function: ""
   regulatoryFields:
     dataPrivacy: "private"
-    customerInfo: "private"
-    dataOrigin: "private"
+    customerInfo: "nonPII"
+    dataOrigin: "humanGenerated"
     monetaryInfo: "nonFinancialData"
 inputPorts:
   - alias: PMS_Master_1
