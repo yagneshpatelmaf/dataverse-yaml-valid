@@ -16,10 +16,10 @@ discoveryPort:
   industryDomain: ""
   function: ""
   regulatoryFields:
-    dataPrivacy: "private"
-    customerInfo: "PII"
-    dataOrigin: "humanGenerated"
-    monetaryInfo: "nonFinancialData"
+    dataPrivacy: ""
+    customerInfo: ""
+    dataOrigin: ""
+    monetaryInfo: ""
 inputPorts:
   - alias: PMS_Master_1
     description: PMS Master
@@ -40,20 +40,12 @@ productState:
   refreshInterval: ""
   retentionVersions: ""
   updateStrategy: append
-  logicalSchema:
-    properties:
-      id:
-        type: number
-      name:
-        type: String
-      marks:
-        type: number
-      modified:
-        type: datetime
+  logicalSchema: ""
   enforceSchemaMethod: Error
   enforceSchema: false
   addRunIdColumn: false
   localTemporaryPath: usr/path/local
+  temporaryPath: usr/path/local
   enableDataReconciliation: false
   isProfilingEnabled: false
   tableName: model_costing386
