@@ -39,7 +39,16 @@ productState:
   alias: zxcv
   refreshInterval: ""
   retentionVersions: ""
-  logicalSchema: ""
+  logicalSchema:
+    properties:
+      id:
+        type: number
+      name:
+        type: String
+      marks:
+        type: number
+      modified:
+        type: datetime
   enforceSchemaMethod: Error
   enforceSchema: false
   isProfilingEnabled: false
