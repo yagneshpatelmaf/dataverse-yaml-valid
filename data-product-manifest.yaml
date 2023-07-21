@@ -27,7 +27,6 @@ inputPorts:
     extra: {}
     syncType: pull
     type: s3-csv
-    dataSetUrn: urn:dv:dataset:79c7ffb6-9365-42b0-ba63-fc3f561a4e74
     filter: ""
     projection: []
     dataProductUrn: ""
