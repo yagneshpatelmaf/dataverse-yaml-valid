@@ -7,7 +7,8 @@ discoveryPort:
   name: Test_mariadb
   description: ""
   category: ""
-  image: https://google.com
+  image: https://google.com    
+  dataSetUrn: urn:dv:dataset:d6c0a3ce-8b37-4831-b460-43df14ee7fa5
   autofillUserinfo: ""
   tags: []
   extra: {}
