@@ -39,7 +39,6 @@ productState:
   alias: zxcv
   refreshInterval: ""
   retentionVersions: ""
-  updateStrategy: append
   logicalSchema:
     properties:
       id:
